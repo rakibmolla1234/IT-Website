@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <title>Silica Host | IT Services</title>
+   <!-- Bootstarp Icon link -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   <!-- favicon link -->
+   <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+   <!-- link Css -->
+   <link rel="stylesheet" href="style.css">
+   <!-- Bootstrap Link -->
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/jquery.aniview.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+   <link rel="stylesheet" href="responsive/responsive.css">
+</head>
+
+<body id="body">
+   <header id="site-header" class="fixed-top backgroundOpacity">
+      <div class="container">
+         <div class="main-header row align-items-center">
+            <div class="logo col-4 col-lg-2">
+               <a href=""><img src="img/logo.png" alt="logo"></a>
+            </div>
+            <div class="navigationMenu col-3 col-lg-8">
+               <div class="hamberger">
+                  <p></p>
+                  <p></p>
+                  <p></p>
+               </div>
+               <nav class="navbar">
+                  <div class="container-fluid">
+                     <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item"><a href="index.html" class="navlink text-success">Home</a></li>
+                        <li class="nav-item"><a href="#service" class="navlink">Sevices</a></li>
+                        <li class="nav-item"><a href="#about" class="navlink">About Us</a></li>
+                        <li class="nav-item"><a href="#package" class="navlink">Pakages</a></li>
+                        <li class="nav-item"><a href="#whyus" class="navlink">Why Us</a></li>
+                        <li class="nav-item"><a href="#team" class="navlink">Team</a></li>
+                        <li class="nav-item"><a href="#reviews" class="navlink">reviews</a></li>
+                        <li class="nav-item"><a href="#" class="navlink" data-bs-toggle="modal"
+                              data-bs-target="#modalID"><i class="bi bi-people"></i> Login</a></li>
+                     </ul>
+                  </div>
+               </nav>
+            </div>
+            <div class="btn registrationBtn col-5 col-lg-2">
+               <button class="btn btn-success fs-5" data-bs-toggle="offcanvas" data-bs-target="#offcanvasID"><i
+                     class="bi bi-r-circle"></i>
+                  Register</button>
+            </div>
+         </div>
+      </div>
+   </header> <!--Header Section End-->
+
+   <div class="offcanvas offcanvas-end bg-success" id="offcanvasID">
+      <div class="offcanvas-header">
+         <h4 class="text-center text-light w-100 fw-bold h3 text-italic">Registration form</h4>
+      </div>
+      <div class="offcanvas-body text-light d-flex flex-column">
+         <div class="offcanvas-clos w-50 ms-auto mb-2">
+            <button class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+         </div>
+
+         <h4 class="mb-3">Fill the form as per your voter ID card.</h4>
+         <form action="" method="post" id="regiForm">
+            <div class="inputBlock mb-2">
+               <label class="form-label" for="fullName">FullName</label>
+               <input type="text" class="form-control" id="fullName" placeholder="Enter fullName">
+               <div class="error"></div>
+            </div>
+            <div class="inputBlock mb-2">
+               <label class="form-label" for="username">Email Address</label>
+               <input type="email" class="form-control" id="email" placeholder="Enter email">
+               <div class="error"></div>
+            </div>
+            <div class="inputBlock mb-2">
+               <label class="form-label" for="password">Password</label>
+               <input type="password" class="form-control" id="password" placeholder="Enter password">
+               <div class="error"></div>
+            </div>
+            <div class="inputBlock mb-2">
+               <label class="form-label" for="confirmPassword">Confirm Password</label>
+               <input type="password" class="form-control" id="confirmPassword" placeholder="Enter confirmPassword">
+               <div class="error"></div>
+            </div>
+            <button class="btn btn-primary w-100 fw-bold fs-5 mt-2 successMsg">Registration</button>
+         </form>
+      </div>
+   </div>
+   <!-- header Regitration form offCanvas-->
+
+   <div class="modal fade" id="modalID">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" id="collapseID">
+         <div class="modal-content bg-success text-white">
+            <div class="modal-header">
+               <div class="w-75 ms-auto">
+                  <h4 class="modal-title fw-bold">Login Form</h4>
+               </div>
+               <button class="btn-close text-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+               <div class="form-container">
+                  <form action="" method="post" id="loginForm">
+                     <div class="form-group">
+                        <label for="emailLogin" class="form-label">Email</label>
+                        <input type="email" id="emailLogin" name="email" class="form-control"
+                           placeholder="Enter your email">
+                        <div class="errorLogin" id="emailError">incorrect email address, Please try again</div>
+                     </div>
+                     <div class="form-group mt-3">
+                        <label for="passwordLogin" class="form-label">Password</label>
+                        <input type="password" id="passwordLogin" name="password" class="form-control"
+                           placeholder="Enter your password">
+                        <div class="errorLogin" id="passwordError">incorrect email address, Please try again!
+                        </div>
+                     </div>
+                     <button type="submit" class="btn btn-info fw-bold mt-3">Log In</button>
+                  </form>
+                  <p class="successMsgLogin mt-3"
+                     style="color: white; font-weight: bold; font-size: 20px; text-align: center;"></p>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button class="btn btn-outline-light submit">Save & Changes</button>
+               <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Login form Modal -->
+   <!-- Hero Area End -->
+   <section>
+      <div class="carousel slide" id="carouselId" data-bs-ride="carousel">
+         <div class="carousel-indicators">
+            <button class="active" data-bs-target="#carouselId" data-bs-slide-to="0"></button>
+            <button data-bs-target="#carouselId" data-bs-slide-to="1"></button>
+            <button data-bs-target="#carouselId" data-bs-slide-to="2"></button>
+         </div>
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <div id="hero-section" class="featured-section">
+                  <div class="container h-100">
+                     <div class="row h-100 align-items-center">
+                        <div
+                           class="heroContent text-center text-white mt-5 animate__animated animate__backInDown animate__delay-0.5s">
+                           <h3 class="h3 animate__animated animate__zoomIn animate__delay-1.5s">Your Web, Our Power</h3>
+                           <h2 class="display-2 mt-1 mb-3 animate__animated animate__zoomIn animate__delay-1s">Smarter
+                              Tech for<br> Business</h2>
+                           <p class="animate__animated animate__zoomIn animate__delay-1s">At Silica Host, we provide
+                              fast, secure, and scalable web hosting and IT
+                              services
+                              tailored to your
+                              business needs.
+                              Whether you're launching your first website or expanding your online operations, our
+                              expert
+                              team
+                              ensures your digital
+                              journey is smooth, efficient, and future-ready.
+                              Silica Host — your trusted partner for digital growth.</p>
+                           <div class="buttons mt-5 animate__animated animate__zoomIn animate__delay-1s">
+                              <button class="btn btn-success fw-bold btn-lg me-1">Get Started</button>
+                              <button class="btn btn-dark fw-bold btn-lg ms-1">Learn More</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <div id="hero-section2" class="featured-section">
+                  <div class="container h-100">
+                     <div class="row h-100 align-items-center">
+                        <div class="heroContent text-center text-white mt-5">
+                           <h3 class="h3 animate__animated animate__fadeInLeft animate__delay-1s">Built for speed &
+                              uptime.</h3>
+                           <h2 class="display-4 mt-1 mb-3 animate__animated animate__fadeInRight animate__delay-1s">Host
+                              Your Website with
+                              Confidence.</h2>
+                           <p class="animate__animated animate__fadeInLeft animate__delay-1s">At Silica Host, we provide
+                              fast, secure, and
+                              scalable web hosting and IT
+                              services
+                              tailored to your
+                              business needs.
+                              Whether you're launching your first website or expanding your online operations, our
+                              expert
+                              team
+                              ensures your digital
+                              journey is smooth, efficient, and future-ready.
+                              Silica Host — your trusted partner for digital growth.</p>
+                           <div class="buttons mt-5 animate__animated animate__fadeInRight animate__delay-1s">
+                              <button class="btn btn-success fw-bold btn-lg me-1">Get Started</button>
+                              <button class="btn btn-dark fw-bold btn-lg ms-1">Learn More</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <div id="hero-section3" class="featured-section">
+                  <div class="container h-100">
+                     <div class="row h-100 align-items-center">
+                        <div
+                           class="heroContent glassMophism w-100 text-white text-center pt-3 p-2 animate__animated  animate__rotateInDownLeft animate__delay-1s">
+                           <h3 class="h3 mb-2 animate__animated  animate__zoomIn animate__delay-2s">Hosting made simple.
+                           </h3>
+                           <h2 class="display-2 mt-1 mb-4 animate__animated  animate__zoomIn animate__delay-2s">Fast &
+                              Secure Hosting</h2>
+                           <p class="mb-3 animate__animated  animate__zoomIn animate__delay-2s">At Silica Host, we
+                              provide fast, secure, and scalable web hosting and IT
+                              services
+                              tailored to your
+                              business needs.
+                              Whether you're launching your first website or expanding your online operations, our
+                              expert
+                              team
+                              ensures your digital
+                              journey is smooth, efficient, and future-ready.
+                              Silica Host — your trusted partner for digital growth.</p>
+                           <button
+                              class="btn btn-success fw-bold me-1 animate__animated  animate__zoomIn animate__delay-2s">Get
+                              Started</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <button class="carousel-control-prev" data-bs-target="#carouselId" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+         </button>
+         <button class="carousel-control-next" data-bs-target="#carouselId" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+         </button>
+      </div>
+      <div class="top-area">
+         <a href="#body" class="bg-danger py-2 px-2 text-white fs-5 rounded"><i class="bi bi-arrow-up-short"></i></a>
+      </div>
+   </section><!-- Hero section -->
+
+   <section id="stats" class="home-section stats-section border-bottom" data-av-animation="animate__rotateInUpRight">
+      <div class="container h-100">
+         <div class="row h-100">
+            <div
+               class="col-lg-3 col-6 border-end d-flex justify-content-center align-items-center BorderRight borderBottom">
+               <div class="stats-box">
+                  <span class="number d-block display-5 fw-bold text-success" data-target="1000">0</span>
+                  <span class="label">Clients</span>
+               </div>
+            </div>
+            <div class="col-lg-3 col-6 border-end d-flex justify-content-center align-items-center borderBottom">
+               <div class="stats-box">
+                  <span class="number d-block display-5 fw-bold text-success" data-target="700">0</span>
+                  <span class="label">Projects</span>
+               </div>
+            </div>
+            <div class="col-lg-3 col-6 d-flex justify-content-center align-items-center border-end">
+               <div class="stats-box">
+                  <span class="number d-block display-5 fw-bold text-success text-center" data-target="6">0</span>
+                  <span class="label">Services</span>
+               </div>
+            </div>
+            <div class="col-lg-3 col-6 col-stats d-flex justify-content-center align-items-center">
+               <div class="stats-box">
+                  <span class=" d-block display-5 fw-bold text-success">24<span class="h1 fw-bold">X</span>7</span>
+                  <span class="label">support</span>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section> <!--stats section End -->
+
+   <section id="package" class="home-section package-section paddingTopBottom" data-av-animation="animate__fadeInUpBig">
+      <div class="cartIconArea bg-success">
+         <a href="cart.html" class="position-relative">
+            🛒
+            <span id="cartCount">0</span>
+         </a>
+      </div>
+
+      <div class="container">
+         <div class="heading mb-5 pt-1 pb-4">
+            <h3 class="title h5 text-uppercase text-success"><i class="bi bi-arrow-left"></i>Our Packages<i
+                  class="bi bi-arrow-right"></i></h3>
+            <h2 class="sub-title display-6"><span class="border-bottom border-3 border-success">Get</span>
+               <span class="text-success"> your Domain &
+               </span> Hosting
+            </h2>
+         </div>
+         <div id="domain" class="py-5 bg-light rounded-2">
+            <h3 class="text-center">Search Your Domain</h3>
+            <div class="row justify-content-center">
+               <div class="col-md-8">
+                  <div class="input-group mb-3">
+                     <input type="text" class="form-control" id="domainInput" placeholder="yourdomain">
+                     <select class="form-select" id="domainExtension" style="max-width: 120px">
+                        <option value=".com">.com</option>
+                        <option value=".net">.net</option>
+                        <option value=".org">.org</option>
+                        <option value=".bd">.bd</option>
+                     </select>
+                     <button class="btn btn-success" id="searchDomainBtn">Search</button>
+                  </div>
+               </div>
+            </div>
+            <div id="domainResult" class="text-center mt-4"></div>
+         </div>
+         <div id="hosting" class="pt-5">
+            <h2 class="text-center mb-5">Our Hosting Plans</h2>
+            <div class="row" id="hostingPlans">
+
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section id="about" class="home-section about-section paddingTopBottom" data-av-animation="animate__rollIn">
+      <div class="container">
+         <div class="heading text-center mb-5 pt-1 pb-4">
+            <h3 class="title h4 text-uppercase text-success"><i class="bi bi-arrow-left"></i>About Us<i
+                  class="bi bi-arrow-right"></i></h3>
+            <h2 class="sub-title display-5"><span class="border-bottom border-3 border-success">Trusted</span>
+               <span class="text-success">Hosting
+               </span> Partner
+            </h2>
+         </div>
+         <div class="row">
+            <div class="col-12 col-lg-6 pt-3 AboutMarginBottom">
+               <div class="heading shadow py-2 px-2">
+                  <h3 class="h4">Why Choose Silica Host?</h3>
+                  <h2 class="display-4 mb-2 mt-2">The Power Behind <span class="text-success">Your Site</span></h2>
+               </div>
+               <div class="paragraph mt-5">
+                  <h4 class="fw-bold h4 mb-2"><i class="bi bi-person-badge"></i> More Than Just Servers — We Power
+                     Dreams
+                  </h4>
+                  <p>We believe the internet should feel personal. That’s why our infrastructure is built to serve not
+                     just code, but
+                     connection — connecting your brand with the world, smoothly and confidently.
+
+                     Whether you're launching your first portfolio or managing a growing eCommerce store — Silica Host
+                     is where your online
+                     journey begins with trust and ends with triumph.</p>
+               </div>
+               <button class="btn btn-success btn-lg fw-bold">Learn More</button>
+            </div>
+            <div class="col-12 col-lg-6">
+               <div class="about-images mx-width-100">
+                  <div class="w-50 float-start">
+                     <img src="img/about1.jpg" class="img-responsive" alt="">
+                  </div>
+                  <div class="w-50 float-start mt-3">
+                     <img src="img/about2.jpg" class="img-responsive" alt="">
+                  </div>
+                  <div class="w-50 float-start">
+                     <img src="img/about3.jpg" class="img-responsive" alt="">
+                  </div>
+                  <div class="w-50 float-start">
+                     <img src="img/about4.webp" class="img-responsive" alt="">
+                  </div>
+               </div>
+               <img src="" alt="">
+            </div>
+         </div>
+      </div>
+   </section> <!-- About section End -->
+
+   <section id="whyus" class="home-section whyus-section paddingTopBottom bg-light" data-av-animation="animate__rollIn">
+      <div class="container">
+         <div class="row">
+            <div class="col-12 col-lg-6 shadow-sm py-3">
+               <h3 class="title h4">WhyChoose Us</h3>
+               <h2 class="sub-title display-4">For Over <span class="text-success">10
+                     Years</span> In The Tech Area</h2>
+            </div>
+            <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
+               <p class="ms-4 fs-5 WhyusPMargin">Our dedicated customer support team is always here to
+                  assist you.
+                  No matter the
+                  time
+                  of
+                  day, we’re
+                  ready to help resolve
+                  any issues or answer your questions.</p>
+            </div>
+         </div>
+         <div class="row align-items-center mt-5 marginTResponsive">
+            <div class="col-12 col-lg-6 position-relative text-left">
+               <div class="whyus-image">
+                  <img class="manImg" src="img/WhyChoose.png" alt="WhyChoose">
+               </div>
+               <div class="whyus-image2"></div>
+            </div>
+            <div class="col-12 col-lg-6">
+               <div class="row mb-4">
+                  <div class="col-lg-6">
+                     <div class="whyusbox rounded-2 float-start bg-white text-dark p-3 shadow marginBottom">
+                        <i class="bi bi-ticket-detailed fs-1"></i>
+                        <h3 class="h4">Ticket Manage</h3>
+                        <p>Downs those still witty an balls so cheif so. Moment an little remain no lively</p>
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="whyusbox rounded-2 shadow float-start bg-success text-white p-3">
+                        <i class="bi bi-hourglass-bottom fs-1"></i>
+                        <h3 class="h4">On Time</h3>
+                        <p>Downs those still witty an balls so cheif so. Moment an little remain no lively</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-lg-6">
+                     <div class="whyusbox rounded-2 shadow float-start bg-success text-white p-3 marginBottom">
+                        <i class="bi bi-cash-coin fs-1"></i>
+                        <h3 class="h4">Affordable Prices</h3>
+                        <p>Downs those still witty an balls so cheif so. Moment an little remain no lively</p>
+                     </div>
+                  </div>
+                  <div class="col-lg-6">
+                     <div class="whyusbox rounded-2 shadow float-start bg-white text-dark p-3">
+                        <i class="bi bi-cursor fs-1"></i>
+                        <h3 class="h4">Lots Of Tours</h3>
+                        <p>Downs those still witty an balls so cheif so. Moment an little remain no lively</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section><!-- whyus section -->
+
+   <section id="service" class="home-section service-section paddingTopBottom" data-av-animation="animate__rollIn">
+      <div class="container">
+         <div class="heading text-center shadow-sm py-2">
+            <h3 class="title h4 text-uppercase text-success"><i class="bi bi-arrow-left"></i> Examples of our work <i
+                  class="bi bi-arrow-right"></i></h3>
+            <h2 class="sub-title display-4">Check Our <span class="text-success">Latest </span>Portfolios</h2>
+         </div>
+         <div class="row mt-3">
+            <div class="col-lg-2">
+               <div class="service-box text-center mt-3">
+                  <div class="service-img bg-white shadow rounded-circle">
+                     <img src="img/domain.png" alt="">
+                  </div>
+                  <div
+                     class="service-title bg-white shadow d-flex align-items-center justify-content-center border border-primary">
+                     <h3>Domain</h3>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-2">
+               <div class="service-box text-center mt-3">
+                  <div class="service-img bg-white shadow rounded-circle">
+                     <img src="img/hosting.png" alt="">
+                  </div>
+                  <div
+                     class="service-title bg-white shadow d-flex align-items-center justify-content-center border border-primary">
+                     <h3>Web Hosting</h3>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-2">
+               <div class="service-box text-center mt-3">
+                  <div class="service-img bg-white shadow rounded-circle">
+                     <img src="img/webDesign.png" alt="">
+                  </div>
+                  <div
+                     class="service-title bg-success shadow d-flex align-items-center justify-content-center border border-primary text-white">
+                     <h3>Website Design</h3>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-2">
+               <div class="service-box text-center mt-3">
+                  <div class="service-img bg-white shadow rounded-circle">
+                     <img src="img/email.png" alt="">
+                  </div>
+                  <div
+                     class="service-title bg-success shadow d-flex align-items-center justify-content-center border border-primary text-white">
+                     <h3>E-Mail Hosting</h3>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-2">
+               <div class="service-box text-center mt-3">
+                  <div class="service-img bg-white shadow rounded-circle">
+                     <img src="img/graphic.png" alt="">
+                  </div>
+                  <div
+                     class="service-title bg-white shadow d-flex align-items-center justify-content-center border border-primary">
+                     <h3>Graphic Design</h3>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-2">
+               <div class="service-box text-center mt-3">
+                  <div class="service-img bg-white shadow rounded-circle">
+                     <img src="img/vps.png" alt="">
+                  </div>
+                  <div
+                     class="service-title bg-white shadow d-flex align-items-center justify-content-center border border-primary">
+                     <h3>VPS Server</h3>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section> <!-- Service section -->
+
+   <section id="team" class="home-section team-section pt-5" data-av-animation="animate__rollIn">
+      <div class="container position-relative">
+         <div class="backgroundColor bg-success">
+
+         </div>
+         <div class="heading">
+            <h3 class="title h4 text-uppercase text-success"><i class="bi bi-arrow-left"></i> Meet The Team<i
+                  class="bi bi-arrow-right"></i></h3>
+            <h2 class="sub-title display-4"><span class="border-bottom border-3 border-success pt-2">Our</span><span
+                  class="text-success">Awasome
+               </span> Team</h2>
+            <p class="mt-4">Let me know if you want it even shorter, more formal, or<br> customized for individual team
+               members.</p>
+         </div>
+         <div class="row mt-5">
+            <div class="col-12 col-lg-3 mt-3 img-box">
+               <div class="team-box hoveEffect position-relative z-index-99">
+                  <div class="img-area text-center">
+                     <img src="img/team2.jpg" alt="team-1">
+                  </div>
+                  <div class="team-datails">
+                     <h3>Md. Ruhul Amin</h3>
+                     <p>Founder</p>
+                     <div class="icons d-flex text-success">
+                        <p><i class="bi bi-facebook text-success "></i></p>
+                        <p><i class="bi bi-twitter text-success"></i></p>
+                        <p><i class="bi bi-instagram text-success"></i></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 col-lg-3 mt-3 img-box">
+               <div class="team-box marginTop1 position-relative z-index-99">
+                  <div class="img-area text-center">
+                     <img src="img/team1.jpg" alt="team-1">
+                  </div>
+                  <div class="team-datails">
+                     <h3>Sovrab Roy</h3>
+                     <p>Senior Campaigner</p>
+                     <div class="icons d-flex text-success">
+                        <p><i class="bi bi-facebook text-success "></i></p>
+                        <p><i class="bi bi-twitter text-success"></i></p>
+                        <p><i class="bi bi-instagram text-success"></i></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 col-lg-3 mt-3 img-box">
+               <div class="team-box marginTop2 position-relative z-index-99 ">
+                  <div class="img-area text-center">
+                     <img src="img/team4.jpg" alt="team-1">
+                  </div>
+                  <div class="team-datails">
+                     <h3>Ontor Sarder</h3>
+                     <p>Senior Campaigner</p>
+                     <div class="icons d-flex text-success">
+                        <p><i class="bi bi-facebook text-success"></i></p>
+                        <p><i class="bi bi-twitter text-success"></i></p>
+                        <p><i class="bi bi-instagram text-success"></i></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 col-lg-3 mt-3 img-box">
+               <div class="team-box marginTop3 position-relative z-index-99">
+                  <div class="img-area text-center">
+                     <img src="img/team3.jpg" class="imgWHeight" alt="team-1">
+                  </div>
+                  <div class="team-datails">
+                     <h3>Tamim Ahmed</h3>
+                     <p>Junior Campaigner</p>
+                     <div class="icons d-flex text-success">
+                        <p><i class="bi bi-facebook text-success"></i></p>
+                        <p><i class="bi bi-twitter text-success"></i></p>
+                        <p><i class="bi bi-instagram text-success"></i></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section id="reviews" class="home-section reviews-section" data-av-animation="animate__rollIn">
+      <div class="container">
+         <div class="row">
+            <div class="reviews-content position-relative z-index-99 col-12 col-lg-7">
+               <div class="heading text-white">
+                  <h3 class="h4">Testimonials</h3>
+                  <h2 class="display-4 mb-5">Reviews From Our <br>clients</h2>
+               </div>
+               <div class="carousel slide" id="carouselID" data-bs-ride="carousel">
+                  <div class="carousel-indicators">
+                     <button class="active" data-bs-target="#carouselID" data-bs-slide-to="0"></button>
+                     <button data-bs-target="#carouselID" data-bs-slide-to="1"></button>
+                     <button data-bs-target="#carouselID" data-bs-slide-to="2"></button>
+                  </div>
+                  <div class="carousel-inner">
+                     <div class="carousel-item active">
+                        <div class="testimonials-box rounded bg-success bg-opacity-75">
+                           <blockquote class="text-white">
+                              "Pellentesque habitant morbi tristique senectus et. Aliquam
+                              malesuada bibendum arcu vitae elementum curabitur vitae.
+                              Id diam vel quam elementum pulvinar ac tium aeneanr etra
+                              magna ac placerat quis eget. In nibh cursus mattis.”
+                           </blockquote>
+                           <div class="author-box px-5 d-flex">
+                              <div class="author-img me-3">
+                                 <img src="img/author-2.jpg" class="authorImg" alt="avatar">
+                              </div>
+                              <div class="author-title mt-3">
+                                 <h5 class="text-primary fw-bold h2">Jhon Doe.</h5>
+                                 <span>C.EO Innovative</span>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="carousel-item">
+                        <div class="testimonials-box rounded bg-success bg-opacity-75">
+                           <blockquote class="text-white">
+                              "Pellentesque habitant morbi tristique senectus et. Aliquam
+                              malesuada bibendum arcu vitae elementum curabitur vitae.
+                              Id diam vel quam elementum pulvinar ac tium aeneanr etra
+                              magna ac placerat quis eget. In nibh cursus mattis.”
+                           </blockquote>
+                           <div class="author-box px-5 d-flex">
+                              <div class="author-img me-3">
+                                 <img src="img/author-3.jpg" class="authorImg" alt="avatar">
+                              </div>
+                              <div class="author-title mt-3">
+                                 <h5 class="text-primary fw-bold h2">Alex Hales.</h5>
+                                 <span>C.EO Innovative</span>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="carousel-item">
+                        <div class="testimonials-box rounded bg-success bg-opacity-75">
+                           <blockquote class="text-white">
+                              "Pellentesque habitant morbi tristique senectus et. Aliquam
+                              malesuada bibendum arcu vitae elementum curabitur vitae.
+                              Id diam vel quam elementum pulvinar ac tium aeneanr etra
+                              magna ac placerat quis eget. In nibh cursus mattis.”
+                           </blockquote>
+                           <div class="author-box px-5 d-flex">
+                              <div class="author-img me-3">
+                                 <img src="img/avatar.png" alt="avatar">
+                              </div>
+                              <div class="author-title mt-3">
+                                 <h5 class="text-primary fw-bold h2">Dawid Malan</h5>
+                                 <span>C.EO Innovative</span>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <button class="carousel-control-prev" data-bs-target="#carouselID" data-bs-slide="prev">
+                     <span class="carousel-control-prev-icon"></span>
+                  </button>
+                  <button class="carousel-control-next" data-bs-target="#carouselID" data-bs-slide="next">
+                     <span class="carousel-control-next-icon"></span>
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section><!-- reviews section -->
+
+   <footer>
+      <div class="footer-header text-center">
+         <div class="container">
+            <img src="img/logo.png" class="mb-5" alt="">
+            <div class="subscribe-section mb-5">
+               <form action="index.html">
+                  <div class="input-group rounded-pill mb-3">
+                     <input type="text" class="form-control shadow" placeholder="yourname@email.com"
+                        aria-label="yourname@email.com" aria-describedby="basic-addon2">
+                     <button class="btn btn-success fw-bold fs-4">Subscribe</button>
+                  </div>
+               </form>
+
+            </div>
+            <div class="icons d-flex justfy-content-center">
+               <p><i class="bi bi-facebook text-success "></i></p>
+               <p><i class="bi bi-twitter text-success"></i></p>
+               <p><i class="bi bi-instagram text-success"></i></p>
+               <p><i class="bi bi-youtube text-success"></i></p>
+               <p><i class="bi bi-pinterest text-success"></i></p>
+            </div>
+         </div>
+      </div>
+      <div class="footer-bottom bg-dark pt-5 py-2">
+         <div class="container">
+            <div class="row d-flex justify-content-center">
+               <div class="col-6 col-lg-3">
+                  <div class="footer-logo mb-3">
+                     <img src="img/logo.png" alt="logo">
+                  </div>
+                  <p class="pDesign">Need help? Our support team is available 24/7 to assist you.Stay connected
+                     with
+                     us for updates,
+                     offers, and hosting tips.
+                     Subscribe to our newsletter and follow us on social media.</p>
+                  <div class="icons d-flex text-success">
+                     <p><i class="bi bi-facebook text-success "></i></p>
+                     <p><i class="bi bi-twitter text-success"></i></p>
+                     <p><i class="bi bi-instagram text-success"></i></p>
+                     <p><i class="bi bi-youtube text-success"></i></p>
+                     <p><i class="bi bi-pinterest text-success"></i></p>
+                  </div>
+               </div>
+               <div class="col-6 col-lg-3 mt-5 d-flex flex-column align-items-center">
+                  <h4 class="text-white fw-bold">Company</h4>
+                  <ul>
+                     <li><a href="Javascript:">Headless</a></li>
+                     <li><a href="Javascript:">B2B Wholesale</a></li>
+                     <li><a href="Javascript:">Multi Channel</a></li>
+                     <li><a href="Javascript:">Commerce</a></li>
+                     <li><a href="Javascript:">career</a></li>
+                  </ul>
+               </div>
+               <div class="col-6 col-lg-3 mt-5 d-flex flex-column align-items-center margin-top">
+                  <h4 class="text-white fw-bold">Help Center</h4>
+                  <ul>
+                     <li><a href="Javascript:">Community</a></li>
+                     <li><a href="Javascript:">Knowledge Base</a></li>
+                     <li><a href="Javascript:">Videos</a></li>
+                     <li><a href="Javascript:">Contact</a></li>
+                     <li><a href="Javascript:">Tech Support</a></li>
+                  </ul>
+               </div>
+               <div class="col-6 col-lg-3 mt-5 d-flex flex-column align-items-center margin-top">
+                  <h4 class="text-white fw-bold">Contacts</h4>
+                  <ul>
+                     <li><a href="Javascript:">About</a></li>
+                     <li><a href="Javascript:">Service</a></li>
+                     <li><a href="Javascript:">Packages</a></li>
+                     <li><a href="Javascript:">Support</a></li>
+                     <li><a href="Javascript:">Blog</a></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="copyright text-center mt-2">
+               <p>Copyright 2025 All rights reserved । This templete is made with by
+                  <span>❤</span>Rakib Molla
+               </p>
+            </div>
+         </div>
+      </div>
+   </footer>
+   <script src=" main.js">
+   </script>
+</body>
+
+</html>

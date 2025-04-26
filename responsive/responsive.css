@@ -1,0 +1,200 @@
+@media only screen and (min-width: 360px) and (max-width:767px) { 
+
+ /* Navbar Styling */
+  .navbar-nav {
+      flex-direction: column !important;
+  }
+
+  .navbar {
+      position: absolute;
+      top: 80px;
+      left: -100%;
+      width: 50%;
+      background-color: green;
+      transition: left 0.5s ease;
+      border-radius: 0 15px 0 15px;
+  }
+
+   .navbar.active {
+      left: 0px;
+   }
+
+  .navbar-nav li:first-child a {
+    color:orange !important;
+  }
+
+  .navbar-nav li {
+    margin-bottom: 15px;
+    font-family: "Winky Rough", sans-serif;
+  }
+
+  .hamberger {
+      display: block;
+  }
+
+   .hamberger.active p:nth-child(1) {
+      transform: rotate(40deg) translate(5px, 5px);
+   }
+
+   .hamberger.active p:nth-child(2) {
+      opacity: 0;
+   }
+
+   .hamberger.active p:nth-child(3) {
+      transform: rotate(-40deg) translate(6px, -6px);
+   }
+
+
+   /* Hero area styling */
+   .heroContent {
+      margin-top: 0 !important;
+   }
+
+   .heroContent p {
+      font-size: 16px;
+      font-weight: 400;
+   }
+
+   /* Stats section style */
+   .borderBottom {
+      padding: 35px !important;
+      border-bottom: 1px solid #ddd;
+   }
+
+   .BorderRight {
+      border-left: 1px solid #ddd;
+   }
+
+   /* Packages section Style */
+   .cartIconArea {
+      top: 11%;
+      z-index: 99;
+   }
+
+   /* About area Style */
+   .paddingTopBottom {
+	   padding: 30px 0;
+   }
+
+   #about .heading {
+      margin-bottom: 10px !important;
+   }
+
+   .paragraph p {
+      font-size: 18px;
+      padding-bottom: 5px;
+   }
+
+   .AboutMarginBottom {
+      margin-bottom: 30px;
+   }
+   .AboutMarginBottom button{
+     font-weight: 400 !important;
+   }
+
+   /* WhyUs Area Style */
+   .whyus-image2 {
+      width: 250px;
+      height: 250px;
+   }
+
+   .whyus-image2 {
+      left: 52px;
+   }
+
+   .marginTResponsive {
+      margin-top: 15px !important;
+   }
+
+   .WhyusPMargin {
+      margin-top: 45px;
+   }
+
+   .whyusbox.marginBottom {
+      margin-bottom: 25px;
+   }
+
+   /* Team Area Styling */
+   .team-section {
+	   height: auto;
+   }
+
+   .img-box {
+      perspective: 1000px;
+   }
+
+   .hoveEffect {
+      transition: 0.5s;
+   }
+
+   .hoveEffect:hover {
+      margin-top: 0px;
+      transform: rotateY(-50deg);
+   }
+
+   .marginTop1 {
+      margin-top: 0px;
+      transition: 0.5s;
+   }
+
+   .marginTop1:hover {
+      margin-top: 0px;
+      transform: rotateY(50deg);
+   }
+
+   .marginTop2 {
+      margin-top: 0px;
+      transition: 0.5s;
+   }
+
+   .marginTop2:hover {
+      margin-top: 0px;
+      transform: rotateY(-50deg);
+   }
+
+   .marginTop3 {
+      margin-top: 0px;
+      transition: 0.5s;
+   }
+
+   .marginTop3:hover {
+      margin-top: 0px;
+      transform: rotateY(50deg);
+   }
+
+   .backgroundColor {
+      top: 54%;
+   }
+
+   .team-datails {
+      margin-left: 67px;
+   }
+
+   /* Footer Area Style */
+   .footer-header img {
+      margin-top: 70px;
+   }
+
+   .footer-header {
+	   padding: 50px 0;
+   }
+
+   .subscribe-section {
+      width: 100%;
+      margin: 0;
+   }
+
+   .margin-top {
+      margin-top: 10px !important;
+   }
+
+   .footer-bottom .pDesign, .footer-bottom ul a {
+      font-size: 14px;
+      font-weight: 400;
+   }
+
+   .copyright p {
+	color: #A0A2A0;
+	margin-top: 25px;
+}
+}

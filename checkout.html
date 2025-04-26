@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Checkout</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+   <div class="container py-5">
+      <h2 class="text-center mb-4">🧾 Checkout Summary</h2>
+
+      <!-- Cart Summary -->
+      <div class="card mb-4">
+         <div class="card-header bg-dark text-white">
+            <h5>Your Selected Items</h5>
+         </div>
+         <ul class="list-group list-group-flush" id="checkoutItems"></ul>
+         <div class="card-footer">
+            <h5 class="text-end">Total: $<span id="checkoutTotal">0.00</span></h5>
+         </div>
+      </div>
+
+      <!-- Billing Form -->
+      <div class="card">
+         <div class="card-header bg-primary text-white">
+            <h5>Billing Information</h5>
+         </div>
+         <div class="card-body">
+            <form id="checkoutForm">
+               <div class="mb-3">
+                  <label for="name" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="name" required>
+               </div>
+               <div class="mb-3">
+                  <label for="email" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="email" required>
+               </div>
+               <div class="mb-3">
+                  <label for="address" class="form-label">Address</label>
+                  <textarea class="form-control" id="address" rows="3" required></textarea>
+               </div>
+               <button type="submit" class="btn btn-success w-100">✅ Confirm Order</button>
+            </form>
+         </div>
+      </div>
+   </div>
+
+   <script>
+      // Show cart items on checkout page
+      const checkoutItems = document.getElementById("checkoutItems");
+      const checkoutTotal = document.getElementById("checkoutTotal");
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      if (cart.length === 0) {
+         checkoutItems.innerHTML = `<li class="list-group-item text-danger">Your cart is empty!</li>`;
+      } else {
+         let total = 0;
+         cart.forEach(item => {
+            const li = document.createElement("li");
+            li.className = "list-group-item d-flex justify-content-between align-items-center";
+            li.innerHTML = `
+            <span><strong>${item.name}</strong> (${item.type})</span>
+            <span>$${item.price.toFixed(2)}</span>
+         `;
+            total += item.price;
+            checkoutItems.appendChild(li);
+         });
+         checkoutTotal.innerText = total.toFixed(2);
+      }
+
+      // Submit billing info + cart data
+      document.getElementById("checkoutForm").addEventListener("submit", function (e) {
+         e.preventDefault();
+
+         if (cart.length === 0) {
+            alert("Cart is empty!");
+            return;
+         }
+
+         const name = document.getElementById("name").value;
+         const email = document.getElementById("email").value;
+         const address = document.getElementById("address").value;
+
+         const orderId = "ORD" + Math.floor(100000 + Math.random() * 900000);
+
+         const orderData = {
+            orderId,
+            customer: { name, email, address },
+            items: cart,
+            total: parseFloat(checkoutTotal.innerText),
+            createdAt: new Date().toISOString()
+         };
+
+         // Simulate sending data to backend
+         console.log("✅ Sending to Backend (fake API):", orderData);
+
+         // Store order ID for confirmation
+         localStorage.setItem("orderId", orderId);
+         localStorage.removeItem("cart");
+
+         // Redirect to confirmation
+         window.location.href = "confirmation.html";
+      });
+   </script>
+</body>
+
+</html>
